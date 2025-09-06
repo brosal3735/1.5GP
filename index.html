@@ -2,22 +2,43 @@
 <html>
 <head>
   <!--
-    CIS213 Unit 1, Guided Practice 2
-    Author: <Broc Salvati>
-    Date: <09/04/2025>
+    CIS213 Week 1, Graded Exercise 1
+    Author: Broc Salvati
+    Date: 09/04/2025
   -->
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Unit 1 Guided Practice 2</title>
+  <title>Week 1 Graded Exercise 1</title>
   <link rel="stylesheet" href="styles.css" />
   <script src="modernizr.custom.05819.js"></script>
+
+  <script>
+    // Messages (variables) required by the exercise
+    var homeMsg = "You selected the Home address";
+    var workMsg = "You selected the Work address";
+
+    // Helper to fill the address fields and alert the correct message
+    function selectAddress(which) {
+      if (which === "home") {
+        document.getElementById('streetinput').value = '100 Main St.';
+        document.getElementById('cityinput').value   = 'Sicilia';
+        document.getElementById('stateinput').value  = 'MA';
+        document.getElementById('zipinput').value    = '02103';
+        alert(homeMsg);
+      } else if (which === "work") {
+        document.getElementById('streetinput').value = '15 Columbine Ln.';
+        document.getElementById('cityinput').value   = 'Crab City';
+        document.getElementById('stateinput').value  = 'MA';
+        document.getElementById('zipinput').value    = '02104';
+        alert(workMsg);
+      }
+    }
+  </script>
 </head>
 
 <body>
   <header>
-    <h1>
-      Broc Salvati, Guided Practice 2
-    </h1>
+    <h1>Broc Salvati, Graded Exercise 1</h1>
   </header>
 
   <article>
@@ -28,13 +49,10 @@
 
         <label for="homeoption" id="homeaddr">
           <span>Home</span><br />
-          1 Main St.<br />
+          100 Main St.<br />
           Sicilia, MA 02103
           <input type="radio" id="homeoption" name="shippingaddr"
-            onclick="document.getElementById('streetinput').value = '1 Main St.';
-                     document.getElementById('cityinput').value = 'Sicilia';
-                     document.getElementById('stateinput').value = 'MA';
-                     document.getElementById('zipinput').value = '02103';" />
+                 onclick="selectAddress('home')" />
         </label>
 
         <label for="workoption" id="workaddr">
@@ -42,10 +60,7 @@
           15 Columbine Ln.<br />
           Crab City, MA 02104
           <input type="radio" id="workoption" name="shippingaddr"
-            onclick="document.getElementById('streetinput').value = '15 Columbine Ln.';
-                     document.getElementById('cityinput').value = 'Crab City';
-                     document.getElementById('stateinput').value = 'MA';
-                     document.getElementById('zipinput').value = '02104';" />
+                 onclick="selectAddress('work')" />
         </label>
       </fieldset>
 
